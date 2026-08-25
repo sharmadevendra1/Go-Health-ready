@@ -2,25 +2,30 @@
 
 **Find the right care. Near you.**
 
-Go Health is a healthcare navigation platform designed to make India's public healthcare system easier to understand and use.
+Go Health is a healthcare-navigation product for India. It helps people find appropriate public healthcare facilities, understand services, discover possible government benefits, and know what to ask for before they travel.
 
 ## Product principles
-- Navigation, not diagnosis
-- Verified/attributed information over generated claims
-- Mobile-first and low-bandwidth friendly
-- English, Hindi and Marathi ready
-- Clear distinction between possible eligibility and verified eligibility
-- Every facility/service record should carry source and freshness metadata
+- Navigation, not diagnosis.
+- Verified/source-aware information over invented completeness.
+- Plain language first; English, Hindi and Marathi ready.
+- Location-aware search using PostGIS.
+- Government scheme information always points to official verification channels.
+- Facility/service freshness and confidence are first-class data.
 
 ## Stack
-- Next.js
-- TypeScript
+- Next.js + TypeScript
 - Supabase PostgreSQL + PostGIS
-- Vercel
-- PWA
+- Vercel-ready PWA
+- Responsive mobile-first UI
 
-## Database
-The production database is the dedicated Supabase project `go-health-db` in `ap-south-1`. It is intentionally separate from the Society Management database.
+## Production database
+Dedicated Supabase project: `go-health-db` (`ap-south-1`). It is intentionally separate from the Society Management database.
+
+## Required environment variables
+```env
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
+```
 
 ## Launch scope
 - Facility discovery
@@ -32,4 +37,7 @@ The production database is the dedicated Supabase project `go-health-db` in `ap-
 - Responsive PWA
 
 ## Safety
-Go Health does not diagnose, prescribe, or replace professional medical care. Government scheme eligibility and facility/service availability must be verified through authoritative sources or the facility.
+Go Health does not diagnose, prescribe, or replace qualified healthcare professionals. Facility availability, service availability and scheme eligibility must be confirmed with the facility or official government source.
+
+## Data integrity
+Do not insert fabricated facility records. Every production facility should carry source, source ID/URL, verification state, confidence and last-verified timestamp.
