@@ -1,0 +1,1 @@
+export default function NotFound(){return <main className="shell" style={{paddingTop:80}}><div className="benefit-card"><div className="eyebrow">GO HEALTH</div><h1 style={{fontFamily:'Manrope',fontSize:48}}>We couldn't find that page.</h1><p>Go back to the healthcare navigation home and start again.</p><a className="cta" href="/">Go to Go Health</a></div></main>}
